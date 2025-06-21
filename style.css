@@ -4,9 +4,34 @@ body {
 
 header {
     text-align: center;
+    font-family: Verdana, sans-serif;
 }
 
 form {
     text-align: center;
     padding: 20px;
+}
+
+.results {
+    padding: 10px;
+}
+
+h3, li, ol {
+    font-family: verdana, sans-serif;
+}
+
+.definition, .synonym, .pronunciation, .audio {
+    padding-bottom: 10px;
+}
+
+#play-audio:hover {
+    transform: scale(1.05);
+}
+
+.input-btn:hover {
+    transform: scale(1.05);
+}
+
+.searched-word {
+    text-align: center;
 }

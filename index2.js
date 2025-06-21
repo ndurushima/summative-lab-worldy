@@ -8,12 +8,14 @@ const getData = async(word) => {
 };
 
 const displayData = (data) => {
+    const word = data[0].word;
     const phonetic = data[0].phonetic;
     const meanings = data[0].meanings[0].definitions;
     const phoneticsAudio = data[0].phonetics[0].audio;
     console.log(meanings);
     console.log(phonetic);
 
+    const searchedWord = document.querySelector('.searched-word');
     const definition = document.querySelector('.definition');
     const synonym = document.querySelector('.synonym');
     const pronunciation = document.querySelector('.pronunciation');
@@ -28,6 +30,8 @@ const displayData = (data) => {
             synonyms.push(...meaning.synonyms); 
         }
     })
+
+    searchedWord.innerHTML = `<h2>Searched word: ${word}</h2>`
     definition.innerHTML = `<h3>Definition:</h3><ol>${html}</ol>`;
     pronunciation.innerHTML = `<h3>Pronunciation:</h3><li>${phonetic}</li>`
     
@@ -59,6 +63,7 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
     const word = document.querySelector(".word").value;
     console.log(word);
+    document.querySelector('.searched-word').innerHTML = "";
     document.querySelector('.definition').innerHTML = "";
     document.querySelector('.synonym').innerHTML = "";
     document.querySelector('.pronunciation').innerHTML = "";
